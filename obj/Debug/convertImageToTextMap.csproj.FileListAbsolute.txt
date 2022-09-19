@@ -1,0 +1,10 @@
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\obj\Debug\convertImageToTextMap.csproj.AssemblyReference.cache
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\obj\Debug\convertImageToTextMap.Form1.resources
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\obj\Debug\convertImageToTextMap.Properties.Resources.resources
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\obj\Debug\convertImageToTextMap.csproj.GenerateResource.cache
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\obj\Debug\convertImageToTextMap.csproj.CoreCompileInputs.cache
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\bin\Debug\convertImageToTextMap.exe.config
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\bin\Debug\convertImageToTextMap.exe
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\bin\Debug\convertImageToTextMap.pdb
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\obj\Debug\convertImageToTextMap.exe
+C:\Users\maxxd\source\repos\convertImageToTextMap\convertImageToTextMap\obj\Debug\convertImageToTextMap.pdb
