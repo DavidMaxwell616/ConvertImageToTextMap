@@ -12,18 +12,15 @@ namespace convertImageToTextMap
 {
     public partial class Form1 : Form
     {
-        int TileWidth = 8;
-        int TileHeight = 8;
+
         int NumColumns = 64;
         int NumRows = 57;
         Bitmap img;
+        Bitmap img2;
 
         public Form1()
         {
             InitializeComponent();
-            //1598x1494
-            tileSizeX.Text = TileWidth.ToString();
-            tileSizeY.Text = TileHeight.ToString();
             Columns.Text = NumColumns.ToString();
             Rows.Text = NumRows.ToString();
         }
@@ -33,24 +30,26 @@ namespace convertImageToTextMap
 
             //columns = 43
             //rows = 41
+            var TileWidth = Convert.ToInt32(tileSizeX.Text);
+            var TileHeight = Convert.ToInt32(tileSizeY.Text);
             string imgString = String.Empty;
-            for (var y = 0; y < NumRows-2; y++)
+            for (var y = 0; y < NumRows; y++)
                 {
-            for (var x = 0; x < NumColumns-2; x ++)
+            for (var x = 0; x < NumColumns; x ++)
                 {
-                var xpxl = (x * TileWidth)+16;
-                var ypxl = (y * TileHeight)+16;
+                var xpxl = (x * TileWidth)+(TileWidth/2);
+                var ypxl = (y * TileHeight)+(TileHeight/2);
                 var pxl = img.GetPixel(xpxl, ypxl);
                 if (pxl.Name == "ff000000" || pxl.Name == "ff808080")
-                        imgString += "X";
+                        imgString += "0";
                     else
-                        imgString += " ";
+                        imgString += "1";
              for (int xx = x * TileWidth; xx < x * TileWidth + TileWidth; xx++)
             {
                 for (int yy = y * TileHeight; yy < y * TileHeight + TileHeight; yy++)
                 {
                     Color col = System.Drawing.ColorTranslator.FromHtml("#AAFF0000");
-                    img.SetPixel(xx, yy, col);
+                    img2.SetPixel(xx, yy, col);
                 }
                }
                     Application.DoEvents();
@@ -58,12 +57,14 @@ namespace convertImageToTextMap
                 imgString += "\r\n";
             }
             textOutput.Text = imgString;
+            Image.Image = img2;
             Image.Refresh();
         }
         public Bitmap CreateNonIndexedImage(Image src)
         {
             Bitmap newBmp = new Bitmap(src.Width, src.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-
+            imageWidth.Text = src.Width.ToString();
+            imageHeight.Text = src.Height.ToString();
             using (Graphics gfx = Graphics.FromImage(newBmp))
             {
                 gfx.DrawImage(src, 0, 0);
@@ -89,13 +90,14 @@ namespace convertImageToTextMap
                 {
                     //Get the path of specified file
                     var filePath = openFileDialog.FileName;
-
-
-                    img  = new Bitmap(filePath);
+                    img = new Bitmap(filePath);
+                    Image.Image = img;
+                    img2 = new Bitmap(filePath);
+                    img2 = CreateNonIndexedImage(img2);
                     imageWidth.Text = img.Width.ToString();
                     imageHeight.Text = img.Height.ToString();
-                    Image.Image = img;
-                    img = CreateNonIndexedImage(img);
+                    tileSizeX.Text = (img.Width/NumColumns).ToString();
+                    tileSizeY.Text = (img.Height / NumRows).ToString();
                 }
             }
 

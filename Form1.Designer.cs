@@ -54,7 +54,7 @@ namespace convertImageToTextMap
             this.Image.Location = new System.Drawing.Point(13, 13);
             this.Image.Name = "Image";
             this.Image.Size = new System.Drawing.Size(361, 306);
-            this.Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Image.TabIndex = 0;
             this.Image.TabStop = false;
             // 
